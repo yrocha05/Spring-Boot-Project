@@ -1,14 +1,22 @@
 package com.educandoweb.course.entities;
 import java.util.Objects;
 import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.Transient;
+
 import java.util.HashSet;
 import java.util.Set;
+
+import org.hibernate.annotations.ManyToAny;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @Table(name = "tb_category")
@@ -20,7 +28,8 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    @Transient
+    @JsonIgnore 
+    @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
 
     public Category() {
