@@ -7,12 +7,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+
 
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hibernate.annotations.ManyToAny;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
